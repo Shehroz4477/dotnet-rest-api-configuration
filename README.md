@@ -16,3 +16,11 @@
 #### 4. [FromQuery]: The parameter is from the query strings in the request
 #### 5. [FromRoute]: The parameter is from the route path
 #### 6. [FromServices]: The parameter is from the DI container
+
+# Configuration
+#### 1. The file configuration provider, such as, appsettings.json
+#### 2. The User secrets
+#### 3. The environment variables configuration provider
+#### 4. The command-line configuration provider
+#### 5. The Azure App Configuration provider
+#### 6. The Azure Key Vault configuration provider
