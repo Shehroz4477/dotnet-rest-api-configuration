@@ -1,10 +1,12 @@
 using dotnet_rest_api_configuration.Extension.Configuration.AddRouting;
+using dotnet_rest_api_configuration.Extension.Registration.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRoutingConfigurations();
 builder.Services.AddControllers();
+builder.Services.AddScopedServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
