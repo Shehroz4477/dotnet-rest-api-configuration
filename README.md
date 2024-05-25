@@ -24,3 +24,6 @@
 #### 4. The command-line configuration provider
 #### 5. The Azure App Configuration provider
 #### 6. The Azure Key Vault configuration provider
+
+# IConfiguration Interface
+#### Using the IConfiguration interface, we can access the configuration settings with the configuration[key] format.
