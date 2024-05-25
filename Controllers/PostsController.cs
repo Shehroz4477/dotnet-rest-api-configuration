@@ -29,7 +29,7 @@ public class PostsController(IPostService postService) : ControllerBase
         return Ok(post);
     }
     [HttpPost]
-    public async Task<ActionResult<Post>> CreatePost(Post post)
+    public async Task<ActionResult<Post>> CreatePost([FromBody] Post post)
     {
         await postService.CreatePost(post);
         // the built-in CreatedAtAction, which returns a response message with the specified action name, 
@@ -38,7 +38,7 @@ public class PostsController(IPostService postService) : ControllerBase
         return CreatedAtAction(nameof(GetPost), new {id = post.Id}, post);
     }
     [HttpPut("{id}")]
-    public async Task<ActionResult<Post?>> UpdatePost(int id, Post post)
+    public async Task<ActionResult<Post?>> UpdatePost(int id, [FromBody] Post post)
     {
         if(id != post.Id)
         {
