@@ -27,3 +27,6 @@
 
 # IConfiguration Interface
 #### Using the IConfiguration interface, we can access the configuration settings with the configuration[key] format.
+
+# Using the options pattern
+#### To use the options pattern, we need to create a class that represents the configuration settings.
