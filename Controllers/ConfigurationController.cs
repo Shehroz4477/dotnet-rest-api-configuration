@@ -35,4 +35,10 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
         var databaseOption = options.Value;
         return Ok(new {databaseOption});
     }
+    [HttpGet("configuration/IOptionsSnapshot/TOption")]
+    public ActionResult ConfigurationITOptionSanpShot([FromServices] IOptionsSnapshot<DatabaseOption> options)
+    {
+        var databaseOption = options.Value;
+        return Ok(new {databaseOption});
+    }
 }
