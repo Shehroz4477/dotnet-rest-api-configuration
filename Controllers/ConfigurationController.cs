@@ -41,4 +41,10 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
         var databaseOption = options.Value;
         return Ok(new {databaseOption});
     }
+    [HttpGet("configuration/IOptionsMonitor/TOption")]
+    public ActionResult ConfigurationITOptionMonitor([FromServices] IOptionsMonitor<DatabaseOption> options)
+    {
+        var databaseOption = options.CurrentValue;
+        return Ok(new {databaseOption});
+    }
 }
