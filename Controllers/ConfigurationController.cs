@@ -15,11 +15,17 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
         return Ok(new {ConnectionString = connectionString,Type = type});
     }
     [HttpGet("configuration/binder")]
-    public ActionResult GetConfigurationBinder()
+    public ActionResult ConfigurationBinder()
     {
         var databaseOption = new DatabaseOption();
         //configuration.GetSection(DatabaseOption.SectionName).Bind(databaseOption);
         configuration.Bind(DatabaseOption.SectionName,databaseOption);
+        return Ok(new {databaseOption});
+    }
+    [HttpGet("configuration/get")]
+    public ActionResult ConfigurationGet()
+    {
+        var databaseOption = configuration.GetSection(DatabaseOption.SectionName).Get<DatabaseOption>();
         return Ok(new {databaseOption});
     }
 }

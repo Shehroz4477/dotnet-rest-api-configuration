@@ -32,5 +32,7 @@
 #### 1. use the options pattern, we need to create a class that represents the configuration settings.
 #### 2. Multiple ways to use the options pattern
 ##### - Using the ConfigurationBinder.Bind() method
-###### a. configuration.GetSection(DatabaseOption.SectionName).Bind(databaseOption)
-###### b. configuration.Bind(DatabaseOption.SectionName, databaseOption) 
+###### a. GetSection(DatabaseOption.SectionName).Bind(databaseOption)
+###### b. Bind(DatabaseOption.SectionName, databaseOption) 
+##### - Using the ConfigurationBinder.Get<TOption>() method
+###### a. GetSection(DatabaseOption.SectionName).Get<DatabaseOption>()
