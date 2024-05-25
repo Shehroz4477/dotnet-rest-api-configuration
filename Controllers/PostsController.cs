@@ -51,8 +51,8 @@ public class PostsController(IPostService postService) : ControllerBase
         }
         return Ok(post);
     }
-    [HttpGet]
-    public async Task<ActionResult<List<Post>>> GetPosts()
+    [HttpGet("paged")]
+    public async Task<ActionResult<List<Post>>> GetPosts([FromQuery] int pageIndex, [FromQuery] int pageSize)
     {
         return Ok(await postService.GetAllPosts());
     }
