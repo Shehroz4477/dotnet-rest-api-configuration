@@ -18,6 +18,8 @@ public class PostsController(IPostService postService) : ControllerBase
     // }
     //  [HttpGet("{id}")] attribute to indicate the URL of the operation. 
     //  The URL will be mapped to /api/posts/{id}.
+
+    // [FromRoute] Attribute
     [HttpGet("{id}")]
     public async Task<ActionResult<Post>> GetPost(int id)
     {
