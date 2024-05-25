@@ -26,7 +26,11 @@
 #### 6. The Azure Key Vault configuration provider
 
 # IConfiguration Interface
-#### Using the IConfiguration interface, we can access the configuration settings with the configuration[key] format.
+#### 1.Using the IConfiguration interface, we can access the configuration settings with the configuration[key] format.
 
 # Using the options pattern
-#### To use the options pattern, we need to create a class that represents the configuration settings.
+#### 1. use the options pattern, we need to create a class that represents the configuration settings.
+#### 2. Multiple ways to use the options pattern
+##### - Using the ConfigurationBinder.Bind() method
+###### a. configuration.GetSection(DatabaseOption.SectionName).Bind(databaseOption)
+###### b. configuration.Bind(DatabaseOption.SectionName, databaseOption) 
