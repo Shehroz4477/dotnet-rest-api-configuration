@@ -47,4 +47,16 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
         var databaseOption = options.CurrentValue;
         return Ok(new {databaseOption});
     }
+    [HttpGet("configuration/Named/Option/IOptionsMonitor/TOption/SqlDatabase")]
+    public ActionResult ConfigurationNamedOptionITOptionMonitorSqlDatabase([FromServices] IOptionsMonitor<DatabaseOption> options)
+    {
+        var databaseOption = options.Get(DatabaseOption.SqlDatabaseSectionName);
+        return Ok(new {databaseOption});
+    }
+    [HttpGet("configuration/Named/Option/IOptionsMonitor/TOption/MySqlDatabase")]
+    public ActionResult ConfigurationNamedOptionITOptionMonitorMySqlDatabase([FromServices] IOptionsMonitor<DatabaseOption> options)
+    {
+        var databaseOption = options.Get(DatabaseOption.MySqlDatabaseSectionName);
+        return Ok(new {databaseOption});
+    }
 }

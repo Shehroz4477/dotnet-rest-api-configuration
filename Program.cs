@@ -12,6 +12,8 @@ builder.Services.AddScopedServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<DatabaseOption>(builder.Configuration.GetSection(DatabaseOption.SectionName));
+builder.Services.Configure<DatabaseOption>(DatabaseOption.SqlDatabaseSectionName,builder.Configuration.GetSection($"{DatabaseOption.NamedSectionName}:{DatabaseOption.SqlDatabaseSectionName}"));
+builder.Services.Configure<DatabaseOption>(DatabaseOption.MySqlDatabaseSectionName,builder.Configuration.GetSection($"{DatabaseOption.NamedSectionName}:{DatabaseOption.MySqlDatabaseSectionName}"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
