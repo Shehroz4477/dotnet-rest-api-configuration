@@ -36,3 +36,7 @@
 ###### b. Bind(DatabaseOption.SectionName, databaseOption) 
 ##### - Using the ConfigurationBinder.Get<TOption>() method
 ###### a. GetSection(DatabaseOption.SectionName).Get<DatabaseOption>()
+##### - Using the IOptions<TOption> interface
+###### a. ASP.NET Core provides built-in DI support for the options pattern
+###### b. We need to register the <TOption> class in the Services.Configure() method of the Program.cs file
+###### c. W can use DI to inject the IOptions<TOption> interface into desire controller

@@ -1,5 +1,6 @@
 using dotnet_rest_api_configuration.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace dotnet_rest_api_configuration.Controllers;
 
@@ -26,6 +27,12 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
     public ActionResult ConfigurationGet()
     {
         var databaseOption = configuration.GetSection(DatabaseOption.SectionName).Get<DatabaseOption>();
+        return Ok(new {databaseOption});
+    }
+    [HttpGet("configuration/IOptions/TOption")]
+    public ActionResult ConfigurationITOption([FromServices] IOptions<DatabaseOption> options)
+    {
+        var databaseOption = options.Value;
         return Ok(new {databaseOption});
     }
 }
