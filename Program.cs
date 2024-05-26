@@ -1,6 +1,6 @@
+using dotnet_rest_api_configuration.Extension.Options;
 using dotnet_rest_api_configuration.Extension.Configuration.AddRouting;
 using dotnet_rest_api_configuration.Extension.Registration.Services;
-using dotnet_rest_api_configuration.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,12 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRoutingConfigurations();
 builder.Services.AddControllers();
 builder.Services.AddScopedServices();
+builder.Services.AddOptionsConfiguration(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.Configure<DatabaseOption>(builder.Configuration.GetSection(DatabaseOption.SectionName));
-builder.Services.Configure<DatabaseOption>(DatabaseOption.SqlDatabaseSectionName,builder.Configuration.GetSection($"{DatabaseOption.NamedSectionName}:{DatabaseOption.SqlDatabaseSectionName}"));
-builder.Services.Configure<DatabaseOption>(DatabaseOption.MySqlDatabaseSectionName,builder.Configuration.GetSection($"{DatabaseOption.NamedSectionName}:{DatabaseOption.MySqlDatabaseSectionName}"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
